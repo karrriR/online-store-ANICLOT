@@ -68,6 +68,7 @@ body {
 
 .menu {
     margin: 0 128px;
+    position: relative;
     &__list {
         list-style-type: none;
         display: flex;
@@ -82,6 +83,67 @@ body {
         color: $white;
         text-transform: uppercase;
         cursor: pointer;
+        position: relative;
+        transition: color 0.3s;
+        
+        &:hover {
+            color: #8C8C8C;
+        }
+    }
+    &__item {
+        position: relative;
+
+        &:hover .menu__dropdown {
+            display: block;
+            margin-top: 7.5px;
+            margin-top: 13px;
+        }
+
+    }
+    &__dropdown {
+        display: none;
+        position: absolute;
+        left: -30%;
+        width: 968px;
+        height: 296px;
+        background-color: $white;
+        border-radius: 20px;
+        padding: 30px;
+        box-sizing: border-box;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -9.5px;
+            left: 40px;
+            transform: translateX(-50%) rotate(45deg);
+            width: 19px;
+            height: 19px;
+            background-color: $white;
+        }
+        &-content {
+            display: flex;
+            gap: 40px;
+        }
+        &-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        &-link {
+            text-decoration: none;
+            font-family: "Manrope", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: $gray;
+            text-transform: uppercase;
+            width: 276px;
+
+            &:hover {
+                color: #8C8C8C;
+            }
+        }
     }
 }
 
