@@ -7,5 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
             nextEl: '.new-items__slider-arrow--right',
             prevEl: '.new-items__slider-arrow--left',
         },
+
+        breakpoints: {
+            360: {
+                slidesPerView: 1,
+            },
+            1440: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    const indicators = document.querySelectorAll('.indicator-items');
+
+    swiperr.on('slideChange', function () {
+        indicators.forEach(indicator => indicator.classList.remove('indicator--active'));
+
+        const activeIndex = swiperr.realIndex;
+
+        indicators[activeIndex].classList.add('indicator--active');
     });
 });

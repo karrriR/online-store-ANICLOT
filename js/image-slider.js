@@ -10,4 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         
     });
+
+    const indicators = document.querySelectorAll('.indicator');
+
+    swiper.on('slideChange', function () {
+        indicators.forEach(indicator => indicator.classList.remove('indicator--active'));
+
+        const activeIndex = swiper.realIndex;
+
+        indicators[activeIndex].classList.add('indicator--active');
+    });
 });

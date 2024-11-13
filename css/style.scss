@@ -21,7 +21,6 @@ body {
     align-items: center;
     &__container {
         width: 100%;
-        // max-width: 1880px;
         margin: 0 auto;
     }
     &__logo {
@@ -182,11 +181,11 @@ body {
     width: 100%;
     max-width: 1880px;
     margin: 20px auto 0 auto;
-    overflow: hidden;
-    border-radius: 20px;
     &__container {
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        border-radius: 20px;
     }
     &__images {
         display: flex;
@@ -239,7 +238,6 @@ body {
 
 .new-items {
     max-width: 1880px;
-    overflow: hidden;
     margin: 100px auto;
     &__product {
         width: 455px;
@@ -339,6 +337,8 @@ body {
     }
     &__slider {
         position: relative;
+        max-width: 1880px;
+        overflow: hidden;
     }
     &__slider-arrows {
         position: absolute;
@@ -409,6 +409,8 @@ body {
 .popular-collections {
     max-width: 1880px;
     margin: 0 auto 20px auto;
+    display: flex;
+    position: relative;
     &__card {
         background-color: $gray;
         border-radius: 20px;
@@ -493,30 +495,38 @@ body {
         border: none;
         border-radius: 10px;
         align-self: center;
-        margin-top: 30px;
         cursor: pointer;
     }
     &__view-all img{
         margin-left: 10px;
     }
-    &__header {
-        height: 230px;
-        justify-content: center;
-        grid-area: header;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        z-index: 2; 
-    }
+
     &__grid {
+        order: 3;
         display: grid;
         grid-template-areas:
         "card1 card2 card3 card4"
         "card8 header header card4"
+        "card8 button button card4"
         "card8 card7 card6 card5";
         gap: 20px;
     }
+    &__header {
+        order: 1;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__button {
+        order: 2;
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 30px auto 0 auto;
+    }
+
 }
 
 .card-small {
@@ -538,7 +548,7 @@ body {
 .card-small:nth-child(7) { grid-area: card7; }
 .card-large:nth-child(8) { grid-area: card8; }
 
-.popup-overlay {
+.popup-overlay, .popup-menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -633,4 +643,363 @@ body {
         align-items: center;
         margin-top: 10px;
     }
+}
+
+.popup-menu {
+    background-color: $white;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: auto;
+    &__close-btn {
+        background-color: $gray;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-left: auto;
+        margin-bottom: 40px;
+    }
+    &__menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 30px;
+
+        &.active .popup-menu__menu-arrow {
+            transform: rotate(0deg);
+        }
+    }
+    &__menu-title {
+        color: $gray;
+        font-family: "Manrope", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    &__menu-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+    }
+
+    &__submenu {
+        display: none;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    &__menu-item.active + &__submenu {
+        display: flex;
+    }
+    &__submenu-item {
+        margin-bottom: 20px;
+        color: $gray;
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    &__submenu-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+/**************************************
+    Стили для разрешения с шириной 320
+***************************************/
+
+
+@media (max-width: 360px) {
+    .header {
+        top: 20px;
+        
+        &__logo img {
+            width: 50px;
+            height: 35px;
+        }
+
+        &__phone {
+            margin: 0 55px;
+        }
+
+        &__phone-number {
+            font-size: 13px;
+            margin-left: 4px;
+        }
+
+        &__user, &__utilities {
+            display: none;
+        }
+
+        &__burger-menu {
+            margin: 6px 4px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            
+            &::before, &::after, span {
+                content: '';
+                display: block;
+                width: 16px;
+                height: 2px;
+                background-color: $white;
+                border-radius: 10px;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .slider {
+        max-width: 340px;
+        height: 502px;
+        margin: 10px auto 0;
+        
+        &__image img {
+            width: 100%;
+            height: 502px;
+            object-fit: cover;
+        }
+
+        &__arrows {
+            display: none;
+        }
+
+        &__indicators {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 10px;
+            
+            .indicator {
+                width: 14px;
+                height: 5px;
+                background-color: #C1C1C1;
+                border-radius: 2px;
+            }
+            
+            .indicator--active {
+                background-color: $gray;
+            }
+        }
+    }
+
+    .new-items {
+        max-width: 340px;
+        margin: 80px auto 60px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__product {
+            width: 340px;
+            height: 462px;
+        }
+
+        &__product-image img {
+            width: 260px;
+            height: 260px;
+        }
+
+        &__product-title {
+            max-width: 300px;
+            word-break: normal;
+        }
+
+        &__product-name {
+            width: 300px;
+        }
+
+        &__slider {
+            max-width: 340px;
+            position: absolute;
+            margin-top: 62px;
+        }
+
+        &__slider-arrows {
+            display: none;
+        }
+
+        &__indicators {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 534px;
+            
+            .indicator-items {
+                width: 14px;
+                height: 5px;
+                background-color: #C1C1C1;
+                border-radius: 2px;
+            }
+            
+            .indicator--active {
+                background-color: $gray;
+            }
+        }
+
+        &__title {
+            font-size: 30px;
+            width: 100%;
+            text-align: left;
+        }
+
+        &__view-all {
+            padding: 18px 28px;
+            display: flex;
+            position: absolute;
+            bottom: 0;
+        }
+        &__header {
+            display: flex;
+            width: 100%;
+            position: relative;
+            top: 0;
+            height: 619px;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0;
+        }
+    }
+
+    .popular-collections {
+        flex-direction: column;
+        max-width: 340px;
+        margin: 0 auto 70px auto;
+        &__card-namebox {
+            margin: 12.5px 0 12.5px 12px;
+        }
+
+        &__card-more-info {
+            padding: 5px;
+        }
+
+        &__card-text {
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+
+        &__card-title, &__card-title-large {
+            font-size: 14px;
+            max-width: 153px;
+        }
+
+        &__card-mainbox img {
+            width: 136px;
+            height: 180px;
+        }
+
+        &__grid {
+            order: 2;
+            display: grid;
+            grid-template-areas:
+                "header"
+                "card1"
+                "card2"
+                "card3"
+                "card4"
+                "card5"
+                "card6"
+                "card7"
+                "card8"
+                "button";
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        &__title {
+            font-size: 30px;
+            text-align: left;
+        }
+
+        &__view-all {
+            padding: 18px 28px;
+        }
+
+        &__header {
+            order: 1;
+            position: static;
+            transform: none;
+            margin-bottom: 10px;
+        }
+
+        &__button {
+            order: 3;
+            margin: 10px auto 0 auto;
+            position: static;
+            transform: none;
+        }
+    }
+
+    .card-small, .card-large {
+        width: 340px;
+        height: 180px;
+    }
+
+    .popup {
+        padding: 10px;
+        border-radius: 0px;
+        max-width: 360px;
+        width: 100%;
+        height: 100%;
+
+        &__close-btn {
+            margin-left: auto;
+        }
+
+        &__submit-box {
+            display: block;
+        }
+
+        &__submit-btn {
+            padding: 20px 0;
+            width: 100%;
+            justify-content: center;
+        }
+
+        &__agreement {
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+    }
+
+    .bottom-menu {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 340px;
+        height: 60px;
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 5;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+
+        &__icons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 70px;
+        }
+    }
+    
 }
