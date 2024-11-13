@@ -1228,3 +1228,223 @@ body {
         position: absolute;
     }
 }
+
+
+/**************************************
+    Стили для разрешения с шириной 1200
+***************************************/
+
+
+@media (max-width: 1200px) {
+    .header {
+        top: 40px;
+        
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 1120px;
+        }
+        
+        &__logo img {
+            width: 80px;
+            height: 57px;
+        }
+
+        &__phone {
+            margin: 0;
+        }
+
+        &__phone-number {
+            font-size: 13px;
+            margin-left: 4px;
+        }
+
+        &__user {
+            gap: 4px;
+            margin: 0;
+
+            &-email {
+                font-size: 13px;
+                max-width: 130px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            &-points {
+                font-size: 12px;
+            }
+        }
+
+    }
+
+    .utilities {
+        &__button--favorites {
+            margin: 0 20px;
+        }
+
+        &__count {
+            display: none;
+        }
+    }
+
+    .menu {
+        margin: 0;
+
+        &__list {
+            gap: 10px;
+        }
+
+        &__link {
+            font-size: 13px;
+        }
+    }
+
+    .slider {
+        max-width: 1160px;
+        height: 680px;
+        margin: 20px auto 0;
+        
+        &__image img {
+            width: 100%;
+            height: 680px;
+            object-fit: cover;
+        }
+
+        &__indicators {
+            display: none;
+        }
+
+        &__arrow--left {
+            margin-left: 20px;
+        }
+        &__arrow--right {
+            margin-right: 20px;
+        }
+    }
+
+    .new-items {
+        max-width: 1160px;
+        margin: 80px auto;
+
+        &__product {
+            width: 373px;
+            height: 462px;
+        }
+
+        &__product-image img {
+            width: 260px;
+            height: 260px;
+        }
+
+        &__product-title {
+            max-width: 333px;
+            word-break: normal;
+        }
+
+        &__product-name {
+            width: 333px;
+        }
+
+        &__slider {
+            max-width: 1160px;
+        }
+
+        &__indicators {
+            display: none;
+        }
+
+        &__title {
+            font-size: 35px;
+        }
+
+        &__view-all {
+            padding: 14px 20px;
+        }
+        &__header {   
+            margin-bottom: 30px;
+        }
+    }
+
+    .popular-collections {
+        flex-direction: column;
+        max-width: 1160px;
+        margin: 0 auto 20px auto;
+        &__card-namebox {
+            margin: 12px 0 12px 12px;
+        }
+
+        &__card-more-info {
+            padding: 6px;
+        }
+
+        &__card-text {
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+
+        &__card-title {
+            font-size: 14px;
+            max-width: 118px;
+        }
+
+        &__card-title-large {
+            font-size: 14px;
+            max-width: 251px;
+        }
+
+        &__card-mainbox img {
+            width: 135px;
+            height: 178px;
+        }
+
+        &__card-mainbox-large img {
+            width: 181px;
+            height: 239px;
+        }
+
+        &__grid {
+            order: 3;
+            display: grid;
+            grid-template-areas:
+            "card1 card2 card3 card4"
+            "card8 header header card4"
+            "card8 button button card4"
+            "card8 card7 card6 card5";
+            gap: 20px;
+        }
+
+        &__title {
+            font-size: 35px;
+        }
+
+        &__view-all {
+            padding: 14px 20px;
+        }
+
+        &__header {
+            order: 1;
+        }
+
+        &__button {
+            order: 2;
+            margin: 25px auto 0 auto;
+        }
+    }
+
+    .card-small {
+        width: 275px;
+        height: 178px;
+        position: relative;
+    }
+
+    .card-large {
+        width: 275px;
+        height: 329px;
+        position: relative;
+    }
+
+    .bottom-menu {
+        display: none;
+    }
+}
