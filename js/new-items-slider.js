@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
             360: {
                 slidesPerView: 1,
             },
+            744: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
             1440: {
                 slidesPerView: 4,
             },
