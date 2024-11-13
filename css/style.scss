@@ -718,11 +718,11 @@ body {
 
 
 /**************************************
-    Стили для разрешения с шириной 320
+    Стили для разрешения с шириной 360
 ***************************************/
 
 
-@media (max-width: 360px) {
+@media (min-width: 360px) and (max-width: 743px) {
     .header {
         top: 20px;
         
@@ -1011,7 +1011,7 @@ body {
 ***************************************/
 
 
-@media (max-width: 744px) {
+@media (min-width: 744px) and (max-width: 1199px) {
     .header {
         top: 30px;
         
@@ -1235,7 +1235,7 @@ body {
 ***************************************/
 
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1439px)  {
     .header {
         top: 40px;
         
@@ -1455,7 +1455,7 @@ body {
 ***************************************/
 
 
-@media (max-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919px) {
     .header {
         top: 40px;
         
